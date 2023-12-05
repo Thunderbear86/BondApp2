@@ -3,7 +3,7 @@ require "settings/init.php";
 
 $dates = $db->sql("SELECT * FROM dates");
 
-foreach ($dates as $date){
+foreach ($dates as $date) {
     echo $date->dateName . "<br>";
 }
 ?>
@@ -26,8 +26,27 @@ foreach ($dates as $date){
 </head>
 
 <body>
+<header>
 
+</header>
+<nav>
+    <?php include "includes/nav.php";?>
+</nav>
+<aside></aside>
+<main>
+    <article>
+        <figure>
+            Login/Opret funktion
+        </figure>
+        <p>Login eller opret profil</p>
+    </article>
+    <section>Knap</section>
+</main>
+<footer>
+    <?php include "includes/footer.php";?>
+</footer>
 
+<script src="js/main.js"></script>
 
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
