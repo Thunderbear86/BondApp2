@@ -1,10 +1,10 @@
 <?php
 require "settings/init.php";
 
-$dates = $db->sql("SELECT * FROM dates");
+$bound = $db->sql("SELECT * FROM bounds");
 
-foreach ($dates as $date) {
-    echo $date->dateName . "<br>";
+foreach ($bounds as $bound) {
+    echo $bound->boundName . "<br>";
 }
 ?>
 
