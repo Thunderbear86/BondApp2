@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Opret Profil - Køn</title>
+    <title>Opret Profil - Lokation</title>
 
     <meta name="robots" content="All">
     <meta name="author" content="Udgiver">
@@ -34,4 +34,5 @@
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
 

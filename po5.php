@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Opret Profil - Køn</title>
+    <title>Opret Profil - Alder</title>
 
     <meta name="robots" content="All">
     <meta name="author" content="Udgiver">
