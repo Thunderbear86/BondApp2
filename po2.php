@@ -1,19 +1,9 @@
-<?php
-require "settings/init.php";
-
-$moedt = $db->sql("SELECT * FROM moedts");
-
-foreach ($moedts as $moedt) {
-    echo $moedt->moedtName . "<br>";
-}
-?>
-
 <!DOCTYPE html>
 <html lang="da">
 <head>
     <meta charset="utf-8">
 
-    <title>Mødt - Dating med mening</title>
+    <title>Opret Profil - Kode</title>
 
     <meta name="robots" content="All">
     <meta name="author" content="Udgiver">
@@ -32,18 +22,9 @@ foreach ($moedts as $moedt) {
 <nav>
     <?php include "includes/nav.php";?>
 </nav>
-<aside></aside>
-<main>
-    <div class="container">
-        <div class="row">
-            <h1 class="text-center">Mødt</h1>
-                <a href="opretlog.php"><div class="col-lg-12">
-                    <img src="img/LOGO.png" alt="logo" class="logo">
-                </div></a>
-            <p class="text-center">Mød din næste ven her</p>
-        </div>
-    </div>
-</main>
+
+
+
 <footer>
     <?php include "includes/footer.php";?>
 </footer>
