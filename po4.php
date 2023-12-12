@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Opret Profil - Email</title>
+    <title>Opret Profil - Profilnavn</title>
 
     <meta name="robots" content="All">
     <meta name="author" content="Udgiver">
@@ -34,3 +34,4 @@
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
