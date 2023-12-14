@@ -40,7 +40,7 @@
                         <input type="date" class="form-control" id="birthdate" name="birthdate" placeholder="DD-MM-YYYY">
                     </div>
                     <button type="button" class="btn btn-secondary" onclick="window.location.href='po3.php'">Tilbage</button>
-                    <button type="submit" class="btn btn-primary">Næste</button>
+                    <button type="button" class="btn btn-primary" onclick="window.location.href='po5.php'">Næste</button>
                 </form>
             </div>
         </div>

@@ -46,7 +46,7 @@
                         <input type="text" class="form-control" id="location" name="location" placeholder="Indtast din by">
                     </div>
                     <button type="button" class="btn btn-secondary" onclick="window.location.href='po4.php'">Tilbage</button>
-                    <button type="submit" class="btn btn-primary">Næste</button>
+                    <button type="button" class="btn btn-primary" onclick="window.location.href='po6.php'">Næste</button>
                 </form>
             </div>
         </div>

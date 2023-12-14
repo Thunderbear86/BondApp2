@@ -46,7 +46,7 @@
                         <input type="password" class="form-control mb-3" id="confirm_password" name="confirm_password" placeholder="Bekræft din kode">
                     </div>
                     <button type="button" class="btn btn-secondary" onclick="window.location.href='po1.php'">Tilbage</button>
-                    <button type="submit" class="btn btn-primary">Næste</button>
+                    <button type="button" class="btn btn-primary" onclick="window.location.href='po3.php'">Næste</button>
                 </form>
             </div>
         </div>
