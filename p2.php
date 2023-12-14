@@ -32,7 +32,8 @@
                         echo '<input type="hidden" name="userId" value="' . $_SESSION['userId'] . '">';
                     }
                     ?>
-                    <button type="submit" class="btn btn-primary">Frem</button>
+                    <button type="button" class="btn btn-secondary" onclick="window.location.href='p1.php'">Tilbage</button>
+                    <button type="button" class="btn btn-primary" onclick="window.location.href='p3.php'">Næste</button>
                 </form>
             </div>
         </div>

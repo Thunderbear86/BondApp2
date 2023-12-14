@@ -33,7 +33,7 @@
                         <textarea class="form-control" id="aboutUser" name="aboutUser" rows="4" placeholder="Noget om dig selv..." required></textarea>
                     </div>
                     <button type="button" class="btn btn-secondary" onclick="window.location.href='po7.php'">Tilbage</button>
-                    <button type="submit" class="btn btn-primary">Frem</button>
+                    <button type="button" class="btn btn-primary" onclick="window.location.href='p2.php'">Næste</button>
                 </form>
             </div>
         </div>

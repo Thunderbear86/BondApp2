@@ -33,7 +33,7 @@
                         <input type="file" class="form-control" id="profilePicture" name="profilePicture" required>
                     </div>
                     <button type="button" class="btn btn-secondary" onclick="window.location.href='p3.php'">Tilbage</button>
-                    <button type="submit" class="btn btn-primary">Frem</button>
+                    <button type="button" class="btn btn-primary" onclick="window.location.href='p5.php'">Næste</button>
                 </form>
             </div>
         </div>

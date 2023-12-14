@@ -8,12 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-<header>
-    <!-- Header content -->
-</header>
-<nav>
-    <?php include "includes/nav.php";?>
-</nav>
+
 
 <main>
     <div class="container">
@@ -33,7 +28,7 @@
                         <textarea class="form-control" id="profileText" name="profileText" rows="6" required></textarea>
                     </div>
                     <button type="button" class="btn btn-secondary" onclick="window.location.href='p2.php'">Tilbage</button>
-                    <button type="submit" class="btn btn-primary">Frem</button>
+                    <button type="button" class="btn btn-primary" onclick="window.location.href='p4.php'">Næste</button>
                 </form>
             </div>
         </div>

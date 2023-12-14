@@ -34,7 +34,7 @@
                         <textarea class="form-control" id="motto" name="motto" rows="4" required></textarea>
                     </div>
                     <button type="button" class="btn btn-secondary" onclick="window.location.href='p4.php'">Tilbage</button>
-                    <button type="submit" class="btn btn-primary">Afslut</button>
+                    <button type="button" class="btn btn-primary" onclick="window.location.href='user_page.php'">Afslut</button>
                 </form>
             </div>
         </div>
