@@ -17,8 +17,19 @@
 
 <main>
     <div class="container">
+        <div class="row justify-content-center mb-4">
+            <img src="img/LOGO.png" alt="logo" style="max-width: 100px; max-height: 100px;">
+        </div>
         <div class="row">
-            <img src="img/LOGO.png" alt="logo" width="100" height="100">
+            <div class="col-lg-12 text-center">
+                <p>Profiloprettelse</p>
+                <div class="progress" style="height: 20px;">
+                    <div class="progress-bar" role="progressbar" style="width: 42%;" aria-valuenow="42" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <p>Næsten halvvejs!</p>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-lg-12">
                 <h1>Indtast din email</h1>
                 <form action="submit_email.php" method="post">
@@ -33,6 +44,7 @@
                         ?>
                         <input type="email" class="form-control" id="email" name="email" placeholder="Din email">
                     </div>
+                    <button type="button" class="btn btn-secondary" onclick="window.location.href='po3.php'">Tilbage</button>
                     <button type="submit" class="btn btn-primary">Frem</button>
                 </form>
             </div>
