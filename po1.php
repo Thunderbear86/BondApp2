@@ -19,7 +19,7 @@
 
 <main>
     <div class="container">
-        <div class="row">
+        <div class="row justify-content-center mb-4">
             <img src="img/LOGO.png" alt="logo" style="max-width: 100px; max-height: 100px;">
         </div>
         <div class="row">

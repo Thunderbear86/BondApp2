@@ -7,7 +7,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Simple validation
     if (empty($username)) {
         // Handle error - username is empty
-        exit("Username is required.");
+        echo "<p>Et brugernavn er påkrævet.</p>";
+        echo "<p>Du vil blive sendt tilbage automatisk.</p>";
+        echo "<script>setTimeout(function(){ window.location.href = 'po1.php'; }, 3000);</script>";
+        exit();
     }
 
     // Insert into database
@@ -16,16 +19,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt = $db->prepare($sql);
         $stmt->execute(['username' => $username]);
 
-        // Redirect or inform the user of successful creation
-        echo "Profile created successfully.";
         // Redirect to another page if needed
+        header("Location: next_page.php");  // Replace 'next_page.php' with the actual next page
+        exit();
     } catch (PDOException $e) {
         // Handle SQL errors (e.g., username already exists)
-        exit($e->getMessage());
+        echo $e->getMessage();
+        echo "<script>setTimeout(function(){ window.location.href = 'po1.php'; }, 3000);</script>";
+        exit();
     }
+} else {
+    // Redirect to form if not a POST request
+    header("Location: po1.php");
+    exit();
 }
-
-// Redirect to form or show error if not POST request
-header("Location: po1.php");
-exit();
 ?>
