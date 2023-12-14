@@ -38,7 +38,7 @@
                         </select>
                     </div>
                     <button type="button" class="btn btn-secondary" onclick="window.location.href='po5.php'">Tilbage</button>
-                    <button type="submit" class="btn btn-primary">Frem</button>
+                    <button type="submit" class="btn btn-primary">Næste</button>
                 </form>
             </div>
         </div>
