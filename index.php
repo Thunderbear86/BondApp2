@@ -1,11 +1,7 @@
 <?php
+
 require "settings/init.php";
 
-$moedt = $db->sql("SELECT * FROM moedts");
-
-foreach ($moedts as $moedt) {
-    echo $moedt->moedtName . "<br>";
-}
 ?>
 
 <!DOCTYPE html>
@@ -29,9 +25,7 @@ foreach ($moedts as $moedt) {
 <header>
 
 </header>
-<nav>
-    <?php include "includes/nav.php";?>
-</nav>
+
 <aside></aside>
 <main>
     <div class="container">
@@ -40,7 +34,7 @@ foreach ($moedts as $moedt) {
                 <a href="opretlog.php"><div class="col-lg-12">
                     <img src="img/LOGO.png" alt="logo" class="logo">
                 </div></a>
-            <p class="text-center">Mød din næste ven her</p>
+            <p class="text-center">Dating med mening</p>
         </div>
     </div>
 </main>

@@ -24,9 +24,10 @@
         <div class="col-md-12">
             <h1 class="text-center mb-3">Mødt</h1>
         </div>
+
         <div class="col-md-12 mb-3">
             <!-- Email Button -->
-            <button class="btn btn-primary w-40">Fortsæt med Email</button>
+            <a href="po1.php" class="btn btn-primary w-40">Fortsæt med Email</a>
         </div>
 
         <div class="col-md-12 mb-3">
@@ -35,12 +36,12 @@
 
         <div class="col-md-12 mb-3">
             <!-- Facebook Button -->
-            <button class="btn btn-primary w-40">Fortsæt med Facebook</button>
+            <a href="po1.php" class="btn btn-primary w-40">Fortsæt med Facebook</a>
         </div>
 
         <div class="col-md-12 mb-3">
             <!-- Google Button -->
-            <button class="btn btn-primary w-40">Fortsæt med Google</button>
+            <a href="po1.php" class="btn btn-primary w-40">Fortsæt med Google</a>
         </div>
 
     </div>

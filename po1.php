@@ -20,17 +20,25 @@
 <main>
     <div class="container">
         <div class="row">
-            <img src="img/LOGO.png" alt="logo" width="100" height="100">
+            <img src="img/LOGO.png" alt="logo" style="max-width: 100px; max-height: 100px;">
         </div>
         <div class="row">
-            <div class="col-lg-12">
-                <p class="mb-3">Opret din profil og start dit møde</p>
+            <div class="col-lg-12 text-center">
+                <p>Profiloprettelse</p>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 14%;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 mt-3">
+                <p class="mb-3">Lad os oprette din profil...</p>
                 <form action="submit_username.php" method="post">
                     <div class="form-group">
                         <label for="inputProfilNavn"><h1>Profilnavn</h1></label>
                         <input type="text" class="form-control mb-3" id="inputProfilNavn" name="username" placeholder="Profilnavn">
                     </div>
-                    <button type="submit" class="btn btn-primary">Frem</button>
+                    <button type="submit" class="btn btn-primary">Næste</button>
                 </form>
             </div>
         </div>
