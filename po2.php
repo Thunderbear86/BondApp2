@@ -22,6 +22,13 @@
             <div class="col-lg-12">
                 <h1>Opret din kode</h1>
                 <form action="submit_password.php" method="post">
+                    <?php
+                    session_start();
+                    if (isset($_SESSION['userId']) && isset($_SESSION['username'])) {
+                        echo '<input type="hidden" name="userId" value="' . $_SESSION['userId'] . '">';
+                        echo '<input type="hidden" name="username" value="' . $_SESSION['username'] . '">';
+                    }
+                    ?>
                     <div class="form-group">
                         <label for="password">Kode</label>
                         <input type="password" class="form-control" id="password" name="password" placeholder="Vælg din kode">

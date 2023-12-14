@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 } else {
     // Redirect to form if not POST request
-    header("Location: path_to_your_form.php");
+    header("po3.php");
     exit();
 }
 ?>

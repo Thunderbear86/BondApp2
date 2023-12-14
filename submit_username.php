@@ -26,6 +26,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 // Redirect to form or show error if not POST request
-header("Location: path_to_your_form.php");
+header("Location: po1.php");
 exit();
 ?>
