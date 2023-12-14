@@ -29,6 +29,12 @@
                     <div class="progress-bar" role="progressbar" style="width: 14%;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
             </div>
+            <div class="col-lg-12 text-center">
+                <p>Profiloprettelse</p>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 14%;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
         </div>
         <div class="row">
             <div class="col-lg-12 mt-3">
