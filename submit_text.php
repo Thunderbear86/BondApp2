@@ -1,25 +1,36 @@
 <?php
 require "settings/init.php";
 
+session_start(); // Start the session at the beginning.
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $profileText = $_POST["profileText"];
-    $userId = $_POST["userId"];
+    if (isset($_SESSION['userId'])) {
+        $userId = $_SESSION['userId'];
+        $profileText = $_POST["profileText"];
 
-    // Validate the profile text length
-    if (strlen($profileText) < 300) {
-        exit("Profilteksten skal være mindst 300 tegn lang."); // "The profile text must be at least 300 characters long."
-    }
+        // Validate the profile text length
+        if (strlen($profileText) < 300) {
+            echo "<p>Profilteksten skal være mindst 300 tegn lang.</p>";
+            echo "<p>Du vil blive sendt tilbage automatisk.</p>";
+            echo "<script>setTimeout(function(){ window.location.href = 'p3.php'; }, 3000);</script>";
+            exit();
+        }
 
-    try {
-        $sql = "UPDATE moedts SET profileText = :profileText WHERE userId = :userId";
-        $stmt = $db->prepare($sql);
-        $stmt->execute(['profileText' => $profileText, 'userId' => $userId]);
+        try {
+            $sql = "UPDATE moedts SET profileText = :profileText WHERE userId = :userId";
+            $stmt = $db->prepare($sql);
+            $stmt->execute(['profileText' => $profileText, 'userId' => $userId]);
 
-        // Redirect or inform the user of successful update
-        echo "Din profiltekst er blevet opdateret."; // "Your profile text has been updated."
-        // Redirect to another page if needed
-    } catch (PDOException $e) {
-        exit("Fejl: " . $e->getMessage()); // "Error: "
+            // Redirect to the next page after successful update
+            header("Location: p4.php"); // Redirect to the next step in the profile creation process
+            exit();
+        } catch (PDOException $e) {
+            exit("Fejl: " . $e->getMessage()); // "Error: "
+        }
+    } else {
+        // Handle the case where the session does not have userId
+        echo "<p>Session error. Intet bruger ID.</p>";
+        exit();
     }
 } else {
     header("Location: p3.php");

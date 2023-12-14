@@ -1,21 +1,30 @@
 <?php
 require "settings/init.php";
 
+session_start(); // Start the session at the beginning.
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $aboutUser = $_POST["aboutUser"];
-    session_start();
-    $userId = $_SESSION['userId'];
+    if (isset($_SESSION['userId'])) {
+        $userId = $_SESSION['userId'];
+        $aboutUser = $_POST["aboutUser"];
 
-    try {
-        $sql = "UPDATE moedts SET aboutUser = :aboutUser WHERE userId = :userId";
-        $stmt = $db->prepare($sql);
-        $stmt->execute(['aboutUser' => $aboutUser, 'userId' => $userId]);
+        // Additional validation can be added here if needed
 
-        // Inform the user of successful about text update
-        echo "Din profiltekst er blevet opdateret."; // "Your profile text has been updated."
-        // Redirect to another page if needed
-    } catch (PDOException $e) {
-        exit("Fejl: " . $e->getMessage()); // "Error: "
+        try {
+            $sql = "UPDATE moedts SET aboutUser = :aboutUser WHERE userId = :userId";
+            $stmt = $db->prepare($sql);
+            $stmt->execute(['aboutUser' => $aboutUser, 'userId' => $userId]);
+
+            // Redirect to another page after successful update
+            header("Location: p2.php"); // Replace 'next_page.php' with the actual next page
+            exit();
+        } catch (PDOException $e) {
+            exit("Fejl: " . $e->getMessage()); // "Error: "
+        }
+    } else {
+        // Handle the case where the session does not have userId
+        echo "<p>Session error. Intet bruger ID.</p>";
+        exit();
     }
 } else {
     header("Location: p1.php");
