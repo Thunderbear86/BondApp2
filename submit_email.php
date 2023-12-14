@@ -6,7 +6,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Simple validation
     if (empty($email)) {
-        exit("Email field is required.");
+        echo "<p>Email er påkrævet.</p>";
+        echo "<p>Du vil blive sendt tilbage automatisk.</p>";
+        echo "<script>setTimeout(function(){ window.location.href = 'po3.php'; }, 3000);</script>";
+        exit();
     }
 
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -21,8 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt = $db->prepare($sql);
         $stmt->execute(['email' => $email, 'userId' => $userId]);
 
-        // Redirect or inform the user of successful email addition
-        echo "Email added successfully.";
+
         // Redirect to another page if needed
     } catch (PDOException $e) {
         // Handle SQL errors
