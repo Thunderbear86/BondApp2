@@ -8,17 +8,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-<header>
-    <!-- Header content -->
-</header>
-<nav>
-    <?php include "includes/nav.php";?>
-</nav>
 
 <main>
     <div class="container">
+        <div class="row justify-content-center mb-4">
+            <img src="img/LOGO.png" alt="logo" style="max-width: 100px; max-height: 100px;">
+        </div>
         <div class="row">
-            <img src="img/LOGO.png" alt="logo" width="100" height="100">
+            <div class="col-lg-12 text-center">
+                <p>Profiloprettelse</p>
+                <div class="progress" style="height: 20px;">
+                    <!-- Add 14% to the existing progress -->
+                    <div class="progress-bar" role="progressbar" style="width: calc(42% + 14%);" aria-valuenow="56" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <p>Over halvvejs!</p>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-lg-12">
                 <h1>Indtast din fødselsdato</h1>
                 <form action="submit_birthdate.php" method="post">
@@ -33,7 +39,8 @@
                         <label for="birthdate">Fødselsdato</label>
                         <input type="date" class="form-control" id="birthdate" name="birthdate" placeholder="DD-MM-YYYY">
                     </div>
-                    <button type="submit" class="btn btn-primary">Frem</button>
+                    <button type="button" class="btn btn-secondary" onclick="window.location.href='po3.php'">Tilbage</button>
+                    <button type="submit" class="btn btn-primary">Næste</button>
                 </form>
             </div>
         </div>

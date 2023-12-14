@@ -38,7 +38,7 @@
                         ?>
                         <input type="email" class="form-control" id="email" name="email" placeholder="Din email">
                     </div>
-                    <button type="button" class="btn btn-secondary" onclick="window.location.href='po3.php'">Tilbage</button>
+                    <button type="button" class="btn btn-secondary" onclick="window.location.href='po2.php'">Tilbage</button>
                     <button type="submit" class="btn btn-primary">Frem</button>
                 </form>
             </div>
