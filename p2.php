@@ -33,7 +33,7 @@
                     }
                     ?>
                     <button type="button" class="btn btn-secondary" onclick="window.location.href='p1.php'">Tilbage</button>
-                    <button type="button" class="btn btn-primary" onclick="window.location.href='p3.php'">Næste</button>
+                    <button type="submit" class="btn btn-primary">Næste</button>
                 </form>
             </div>
         </div>

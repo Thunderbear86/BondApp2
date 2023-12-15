@@ -24,8 +24,9 @@
                 <form action="submit_picture.php" method="post" enctype="multipart/form-data">
                     <?php
                     session_start();
-                    if (isset($_SESSION['userId'])) {
+                    if (isset($_SESSION['userId']) && isset($_SESSION['username'])) {
                         echo '<input type="hidden" name="userId" value="' . $_SESSION['userId'] . '">';
+                        echo '<input type="hidden" name="username" value="' . $_SESSION['username'] . '">';
                     }
                     ?>
                     <div class="form-group">

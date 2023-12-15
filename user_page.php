@@ -10,7 +10,13 @@ if (!isset($_SESSION['userId'])) {
 $userId = $_SESSION['userId'];
 
 // Fetch user data from the database
-$userData = $db->sql("SELECT * FROM moedts WHERE userId = :userId", ['userId' => $userId])[0];
+$userData = $db->sql("SELECT * FROM moedts WHERE userId = :userId", ['userId' => $userId]);
+$userData = $userData ? $userData[0] : null;
+
+if (!$userData) {
+    echo "Brugerdata ikke fundet."; // "User data not found."
+    exit();
+}
 
 // Calculate age from birthdate
 $birthdate = new DateTime($userData->birthdate);
@@ -19,6 +25,7 @@ $age = $birthdate->diff($today)->y;
 
 // Fetch user interests
 $interestsData = $db->sql("SELECT interestName FROM interests INNER JOIN userInterests ON interests.interestsId = userInterests.interestsId WHERE userId = :userId", ['userId' => $userId]);
+
 ?>
 
 <!DOCTYPE html>

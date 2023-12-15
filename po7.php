@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="da">
 <head>
@@ -10,11 +9,10 @@
 </head>
 <body>
 
-
 <main>
     <div class="container">
         <div class="row">
-            <img src="img/LOGO.png" alt="logo" width="100" height="100">
+            <img src="img/LOGO.png" alt="logo" style="max-width: 100px; max-height: 100px;">
             <div class="col-lg-12">
                 <h1>MitID Bekræftelse</h1>
                 <p>Plads til MitID bekræftelsesproces (billedpladsholder)</p>
@@ -28,16 +26,11 @@
     </div>
 </main>
 
-
-
-
 <footer>
     <?php include "includes/footer.php";?>
 </footer>
 
 <script src="js/main.js"></script>
-
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-

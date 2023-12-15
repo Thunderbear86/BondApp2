@@ -19,8 +19,9 @@
                 <form action="submit_text.php" method="post" onsubmit="return validateTextLength()">
                     <?php
                     session_start();
-                    if (isset($_SESSION['userId'])) {
+                    if (isset($_SESSION['userId']) && isset($_SESSION['username'])) {
                         echo '<input type="hidden" name="userId" value="' . $_SESSION['userId'] . '">';
+                        echo '<input type="hidden" name="username" value="' . $_SESSION['username'] . '">';
                     }
                     ?>
                     <div class="form-group">

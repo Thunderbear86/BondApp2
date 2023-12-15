@@ -44,7 +44,7 @@
                         <label for="inputProfilNavn"><h1>Profilnavn</h1></label>
                         <input type="text" class="form-control mb-3" id="inputProfilNavn" name="username" placeholder="Profilnavn">
                     </div>
-                    <button type="button" class="btn btn-primary" onclick="window.location.href='po2.php'">Næste</button>
+                    <button type="submit" class="btn btn-primary">Næste</button>
                 </form>
             </div>
         </div>

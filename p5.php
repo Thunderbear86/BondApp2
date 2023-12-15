@@ -1,3 +1,9 @@
+<?php
+if (isset($_GET['error']) && $_GET['error'] == 'shortmotto') {
+    echo "<p>Citat, motto eller sætning skal være mindst 100 tegn lang.</p>";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="da">
 <head>
@@ -19,8 +25,9 @@
                 <form action="submit_motto.php" method="post" onsubmit="return validateMottoLength()">
                     <?php
                     session_start();
-                    if (isset($_SESSION['userId'])) {
+                    if (isset($_SESSION['userId']) && isset($_SESSION['username'])) {
                         echo '<input type="hidden" name="userId" value="' . $_SESSION['userId'] . '">';
+                        echo '<input type="hidden" name="username" value="' . $_SESSION['username'] . '">';
                     }
                     ?>
                     <div class="form-group">
@@ -28,7 +35,7 @@
                         <textarea class="form-control" id="motto" name="motto" rows="4" required></textarea>
                     </div>
                     <button type="button" class="btn btn-secondary" onclick="window.location.href='p4.php'">Tilbage</button>
-                    <button type="button" class="btn btn-primary" onclick="window.location.href='user_page.php'">Afslut</button>
+                    <button type="submit" class="btn btn-primary">Afslut</button>
                 </form>
             </div>
         </div>

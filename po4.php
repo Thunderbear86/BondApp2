@@ -18,8 +18,7 @@
             <div class="col-lg-12 text-center">
                 <p>Profiloprettelse</p>
                 <div class="progress" style="height: 20px;">
-                    <!-- Add 14% to the existing progress -->
-                    <div class="progress-bar" role="progressbar" style="width: calc(42% + 14%);" aria-valuenow="56" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar" role="progressbar" style="width: 56%;" aria-valuenow="56" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
                 <p>Over halvvejs!</p>
             </div>
@@ -30,17 +29,16 @@
                 <form action="submit_birthdate.php" method="post">
                     <?php
                     session_start();
-                    if (isset($_SESSION['userId']) && isset($_SESSION['username'])) {
+                    if (isset($_SESSION['userId'])) {
                         echo '<input type="hidden" name="userId" value="' . $_SESSION['userId'] . '">';
-                        echo '<input type="hidden" name="username" value="' . $_SESSION['username'] . '">';
                     }
                     ?>
                     <div class="form-group">
                         <label for="birthdate">Fødselsdato</label>
-                        <input type="date" class="form-control" id="birthdate" name="birthdate" placeholder="DD-MM-YYYY">
+                        <input type="date" class="form-control" id="birthdate" name="birthdate" required>
                     </div>
                     <button type="button" class="btn btn-secondary" onclick="window.location.href='po3.php'">Tilbage</button>
-                    <button type="button" class="btn btn-primary" onclick="window.location.href='po5.php'">Næste</button>
+                    <button type="submit" class="btn btn-primary">Næste</button>
                 </form>
             </div>
         </div>

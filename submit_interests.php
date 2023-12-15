@@ -1,18 +1,15 @@
 <?php
 require "settings/init.php";
-
-session_start(); // Start the session at the beginning.
+session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['interests'])) {
-    if (isset($_SESSION['userId'])) {
+    if (!empty($_SESSION['userId'])) {
         $userId = $_SESSION['userId'];
         $selectedInterests = $_POST['interests'];
 
         // Ensure at least 5 interests are selected
         if (count($selectedInterests) < 5) {
-            echo "<p>Vælg mindst 5 interesser.</p>";
-            echo "<p>Du vil blive sendt tilbage automatisk.</p>";
-            echo "<script>setTimeout(function(){ window.location.href = 'p2.php'; }, 3000);</script>";
+            header("Location: p2.php?error=notenoughinterests");
             exit();
         }
 
@@ -25,14 +22,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['interests'])) {
             }
 
             // Redirect to the next page after successful update
-            header("Location: p3.php"); // Redirect to the next step in the profile creation process
+            header("Location: p3.php");
             exit();
         } catch (PDOException $e) {
-            exit("Fejl: " . $e->getMessage()); // "Error: "
+            exit("Fejl: " . $e->getMessage());
         }
     } else {
-        // Handle the case where the session does not have userId
-        echo "<p>Session error. Intet bruger ID.</p>";
+        // Redirect to the starting point of profile creation with an error message
+        header("Location: po1.php?error=nouserid");
         exit();
     }
 } else {

@@ -8,37 +8,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-<header>
-    <!-- Header content -->
-</header>
-<nav>
-    <?php include "includes/nav.php";?>
-</nav>
 
 <main>
     <div class="container">
         <div class="row">
-            <img src="img/LOGO.png" alt="logo" width="100" height="100">
+            <img src="img/LOGO.png" alt="logo" style="max-width: 100px; max-height: 100px;">
             <div class="col-lg-12">
                 <h1>Vælg dit køn</h1>
                 <form action="submit_gender.php" method="post">
                     <?php
                     session_start();
-                    if (isset($_SESSION['userId']) && isset($_SESSION['username'])) {
+                    if (isset($_SESSION['userId'])) {
                         echo '<input type="hidden" name="userId" value="' . $_SESSION['userId'] . '">';
-                        echo '<input type="hidden" name="username" value="' . $_SESSION['username'] . '">';
                     }
                     ?>
                     <div class="form-group">
                         <label for="gender">Køn</label>
-                        <select class="form-control" id="gender" name="gender">
+                        <select class="form-control" id="gender" name="gender" required>
+                            <option value="">Vælg...</option>
                             <option value="Mand">Mand</option>
                             <option value="Kvinde">Kvinde</option>
                             <option value="Andet">Andet</option>
                         </select>
                     </div>
                     <button type="button" class="btn btn-secondary" onclick="window.location.href='po5.php'">Tilbage</button>
-                    <button type="button" class="btn btn-primary" onclick="window.location.href='po7.php'">Næste</button>
+                    <button type="submit" class="btn btn-primary">Næste</button>
                 </form>
             </div>
         </div>

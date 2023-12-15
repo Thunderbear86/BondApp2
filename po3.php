@@ -29,17 +29,10 @@
                 <form action="submit_email.php" method="post">
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <?php
-                        session_start();
-                        if (isset($_SESSION['userId']) && isset($_SESSION['username'])) {
-                            echo '<input type="hidden" name="userId" value="' . $_SESSION['userId'] . '">';
-                            echo '<input type="hidden" name="username" value="' . $_SESSION['username'] . '">';
-                        }
-                        ?>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Din email">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Din email" required>
                     </div>
                     <button type="button" class="btn btn-secondary" onclick="window.location.href='po2.php'">Tilbage</button>
-                    <button type="button" class="btn btn-primary" onclick="window.location.href='po4.php'">Næste</button>
+                    <button type="submit" class="btn btn-primary">Næste</button>
                 </form>
             </div>
         </div>
@@ -47,7 +40,7 @@
 </main>
 
 <footer>
-    <?php include "includes/footer.php";?>
+    <?php include "includes/footer.php"; ?>
 </footer>
 <script src="js/main.js"></script>
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

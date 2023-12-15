@@ -1,35 +1,37 @@
 <?php
 require "settings/init.php";
 
-session_start(); // Start the session at the beginning.
+session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_SESSION['userId'])) {
+    if (!empty($_SESSION['userId'])) {
         $userId = $_SESSION['userId'];
-        $motto = $_POST["motto"];
+        $motto = $_POST["motto"] ?? ''; // Capture the motto from POST data
 
         // Validate the motto length
         if (strlen($motto) < 100) {
-            echo "<p>Citat, motto eller sætning skal være mindst 100 tegn lang.</p>";
-            echo "<p>Du vil blive sendt tilbage automatisk.</p>";
-            echo "<script>setTimeout(function(){ window.location.href = 'p5.php'; }, 3000);</script>";
+            // Redirect to p5.php with an error message in the URL
+            header("Location: p5.php?error=shortmotto");
             exit();
         }
 
         try {
+            // Update the motto in the database
             $sql = "UPDATE moedts SET motto = :motto WHERE userId = :userId";
-            $stmt = $db->prepare($sql);
-            $stmt->execute(['motto' => $motto, 'userId' => $userId]);
+            // Assuming your db class has a method to handle parameterized queries
+            $result = $db->sql($sql, ['motto' => $motto, 'userId' => $userId], false);
 
-            // Redirect to another page if needed
-            header("Location: user_page.php"); // Redirect to the user profile page after update
+            // Redirect to the user profile page after successful update
+            header("Location: user_page.php");
             exit();
-        } catch (PDOException $e) {
-            exit("Fejl: " . $e->getMessage()); // "Error: "
+        } catch (Exception $e) {
+            // Handle any exceptions/errors
+            echo "Fejl: " . $e->getMessage();
+            exit();
         }
     } else {
-        // Handle the case where the session does not have userId
-        echo "<p>Session error. Ingen bruger ID.</p>";
+        // If userId is not set, redirect to the starting point of profile creation or an error page
+        header("Location: po1.php"); // Redirect to the initial profile creation page
         exit();
     }
 } else {
