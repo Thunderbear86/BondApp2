@@ -3,25 +3,21 @@
 <head>
     <meta charset="utf-8">
     <title>Opret Profil - Profiltekst</title>
-    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
-    <link href="css/styles.css" rel="stylesheet" type="text/css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- [Rest of the head content] -->
 </head>
 <body>
-
 
 <main>
     <div class="container">
         <div class="row">
-            <img src="img/LOGO.png" alt="logo" width="100" height="100">
+            <img src="img/LOGO.png" alt="logo" style="max-width: 100px; max-height: 100px;">
             <div class="col-lg-12">
                 <h1>Skriv din profiltekst</h1>
                 <form action="submit_text.php" method="post" onsubmit="return validateTextLength()">
                     <?php
                     session_start();
-                    if (isset($_SESSION['userId']) && isset($_SESSION['username'])) {
+                    if (isset($_SESSION['userId'])) {
                         echo '<input type="hidden" name="userId" value="' . $_SESSION['userId'] . '">';
-                        echo '<input type="hidden" name="username" value="' . $_SESSION['username'] . '">';
                     }
                     ?>
                     <div class="form-group">
@@ -29,7 +25,7 @@
                         <textarea class="form-control" id="profileText" name="profileText" rows="6" required></textarea>
                     </div>
                     <button type="button" class="btn btn-secondary" onclick="window.location.href='p2.php'">Tilbage</button>
-                    <button type="button" class="btn btn-primary" onclick="window.location.href='p4.php'">Næste</button>
+                    <button type="submit" class="btn btn-primary">Næste</button>
                 </form>
             </div>
         </div>

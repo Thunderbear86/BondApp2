@@ -11,7 +11,7 @@
 <main>
     <div class="container">
         <div class="row">
-            <img src="img/LOGO.png" alt="logo" width="100" height="100">
+            <img src="img/LOGO.png" alt="logo" style="max-width: 100px; max-height: 100px;">
             <div class="col-lg-12">
                 <h1>Vælg dine interesser</h1>
                 <form action="submit_interests.php" method="post">
@@ -41,5 +41,7 @@
 </main>
 
 <!-- ... footer ... -->
+<script src="js/main.js"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

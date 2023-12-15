@@ -12,15 +12,14 @@
 <main>
     <div class="container">
         <div class="row">
-            <img src="img/LOGO.png" alt="logo" width="100" height="100">
+            <img src="img/LOGO.png" alt="logo" style="max-width: 100px; max-height: 100px;">
             <div class="col-lg-12">
                 <h1>Fortæl lidt om dig selv</h1>
                 <form action="submit_about.php" method="post">
                     <?php
                     session_start();
-                    if (isset($_SESSION['userId']) && isset($_SESSION['username'])) {
+                    if (isset($_SESSION['userId'])) {
                         echo '<input type="hidden" name="userId" value="' . $_SESSION['userId'] . '">';
-                        echo '<input type="hidden" name="username" value="' . $_SESSION['username'] . '">';
                     }
                     ?>
                     <div class="form-group">
@@ -28,7 +27,7 @@
                         <textarea class="form-control" id="aboutUser" name="aboutUser" rows="4" placeholder="Noget om dig selv..." required></textarea>
                     </div>
                     <button type="button" class="btn btn-secondary" onclick="window.location.href='po7.php'">Tilbage</button>
-                    <button type="button" class="btn btn-primary" onclick="window.location.href='p2.php'">Næste</button>
+                    <button type="submit" class="btn btn-primary">Næste</button>
                 </form>
             </div>
         </div>
