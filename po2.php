@@ -85,14 +85,12 @@
             hasNumber.test(password.value) &&
             hasUpperCase.test(password.value) &&
             noSpaces.test(password.value);
-
         if (isValidPassword && password.value === confirmPassword.value) {
             nextButton.disabled = false;
         } else {
             nextButton.disabled = true;
         }
     }
-
     password.addEventListener('input', validatePasswords);
     confirmPassword.addEventListener('input', validatePasswords);
 </script>
