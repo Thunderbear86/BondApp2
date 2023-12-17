@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $result = $db->sql($sql, ['motto' => $motto, 'userId' => $userId], false);
 
             // Redirect to the user profile page after successful update
-            header("Location: user_page.php");
+            header("Location: login.php");
             exit();
         } catch (Exception $e) {
             // Handle any exceptions/errors
