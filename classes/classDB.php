@@ -140,6 +140,13 @@ class db {
         }
 
     }
+    /**
+     * Retrieves the ID of the last inserted row or sequence value.
+     * @return string ID of the last inserted row.
+     */
+    public function lastInsertId() {
+        return $this->dbCon->lastInsertId();
+    }
 
 }
 ?>

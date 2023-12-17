@@ -1,29 +1,25 @@
 <?php
 require "settings/init.php";
 
-session_start(); // Start the session at the beginning.
+session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_SESSION['userId'])) {
+    if (!empty($_SESSION['userId'])) {
         $userId = $_SESSION['userId'];
         $aboutUser = $_POST["aboutUser"];
 
-        // Additional validation can be added here if needed
-
         try {
             $sql = "UPDATE moedts SET aboutUser = :aboutUser WHERE userId = :userId";
-            $stmt = $db->prepare($sql);
-            $stmt->execute(['aboutUser' => $aboutUser, 'userId' => $userId]);
+            // Use sql() method of db class
+            $db->sql($sql, ['aboutUser' => $aboutUser, 'userId' => $userId], false);
 
-            // Redirect to another page after successful update
-            header("Location: p2.php"); // Replace 'next_page.php' with the actual next page
+            header("Location: p2.php"); // Redirect to the next step
             exit();
-        } catch (PDOException $e) {
-            exit("Fejl: " . $e->getMessage()); // "Error: "
+        } catch (Exception $e) {
+            exit("Fejl: " . $e->getMessage());
         }
     } else {
-        // Handle the case where the session does not have userId
-        echo "<p>Session error. Intet bruger ID.</p>";
+        echo "<p>Session error. No user ID.</p>";
         exit();
     }
 } else {
