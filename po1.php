@@ -20,13 +20,13 @@
 <main>
     <div class="container">
         <div class="row justify-content-center">
-            <img class="mt-5 mb-5 p-0" src="img/TEST%202.png" alt="logo" style="max-width: 50%;">
+            <img class="mt-5 mb-3 p-0" src="img/TEST%202.png" alt="logo" style="max-width: 50%;">
             <div class="col-10 mb-2">
                 <h3>Profiloprettelse</h3>
             </div>
             <div class=" col-10 mb-3">
                 <div class="progress">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated custom-progress-bar" role="progressbar" aria-valuenow="14.28" aria-valuemin="0" aria-valuemax="100" style="width: 14.28%"> 14.28%</div>
+                    <div class="progress-bar progress-bar-striped progress-bar-animated custom-progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 0" data-progress="14.28">14.28%</div>
                 </div>
             </div>
             <div class="col-10 mb-5">
@@ -44,7 +44,7 @@
                         <small style="float: right;" id="charCount">0 / 25</small>
                         <input type="text" class="form-control mb-4 shadow-sm border-0 tall-input rounded" id="inputProfilNavn" name="username" placeholder="Profilnavn" oninput="updateCharacterCount()" maxlength="25"></div>
                     <div class="d-flex justify-content-end">
-                        <button type="submit" class="btn btn-lg btn-primary position-absolute border-0" id="submitButton" disabled>
+                        <button type="submit" class="btn btn-lg btn-primary position-absolute" id="submitButton" disabled>
                                Næste
                             <i class="fa-solid fa-angle-right ps-4" style="color: #282E41;"></i>
                         </button>

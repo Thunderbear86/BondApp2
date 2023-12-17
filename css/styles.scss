@@ -68,5 +68,14 @@ img {
 
 
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+	border: none;
 	background-color: #81F57D !important;
+	color: #282E41 !important;
+}
+
+
+.btn-secondary, .btn-secondary:hover, .btn-secondary:active, .btn-secondary:visited {
+	border: none;
+	background-color: #DEE7F2 !important;
+	color: #282E41 !important;
 }
