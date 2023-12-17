@@ -19,32 +19,36 @@
 
 <main>
     <div class="container">
-        <div class="row justify-content-center mb-4">
-            <img src="img/LOGO.png" alt="logo" style="max-width: 100px; max-height: 100px;">
-        </div>
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <p>Profiloprettelse</p>
+        <div class="row justify-content-center">
+            <img class="mt-5 mb-5 p-0" src="img/TEST%202.png" alt="logo" style="max-width: 50%;">
+            <div class="col-10 mb-2">
+                <h3>Profiloprettelse</h3>
+            </div>
+            <div class=" col-10 mb-3">
                 <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 14%;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar progress-bar-striped progress-bar-animated custom-progress-bar" role="progressbar" aria-valuenow="14.28" aria-valuemin="0" aria-valuemax="100" style="width: 14.28%"> 14.28%</div>
                 </div>
             </div>
-            <div class="col-lg-12 text-center">
-                <p>Profiloprettelse</p>
-                <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 14%;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
+            <div class="col-10 mb-5">
+                <p>Lad os oprette din profil...</p>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12 mt-3">
-                <p class="mb-3">Lad os oprette din profil...</p>
+            <div class="col-10 mb-4 mt-4">
+                <h5>Hvad vil du gerne kaldes?</h5>
+            </div>
+            <div class="col-10">
                 <form action="submit_username.php" method="post">
                     <div class="form-group">
-                        <label for="inputProfilNavn"><h1>Profilnavn</h1></label>
-                        <input type="text" class="form-control mb-3" id="inputProfilNavn" name="username" placeholder="Profilnavn">
+                        <label for="inputProfilNavn">
+                            <h2>Profilnavn:</h2>
+                        </label>
+                        <small style="float: right;" id="charCount">0 / 25</small>
+                        <input type="text" class="form-control mb-4 shadow-sm border-0 tall-input rounded" id="inputProfilNavn" name="username" placeholder="Profilnavn" oninput="updateCharacterCount()" maxlength="25"></div>
+                    <div class="d-flex justify-content-end">
+                        <button type="submit" class="btn btn-lg btn-primary position-absolute border-0" id="submitButton" disabled>
+                               Næste
+                            <i class="fa-solid fa-angle-right ps-4" style="color: #282E41;"></i>
+                        </button>
                     </div>
-                    <button type="submit" class="btn btn-primary">Næste</button>
                 </form>
             </div>
         </div>
@@ -56,6 +60,20 @@
 </footer>
 
 <script src="js/main.js"></script>
+
+<script>
+    /* disable button funktion */
+    function updateCharacterCount() {
+        const inputVal = document.getElementById("inputProfilNavn").value;
+        const charCounter = document.getElementById("charCount");
+        charCounter.textContent = `${inputVal.length} / 25`; /* tæller */
+
+        /* tjekker om der er skrevet noget i feltet */
+        const btn = document.getElementById("submitButton");
+        btn.disabled = inputVal.trim() === "";
+    }
+</script>
+<script src="https://kit.fontawesome.com/a188e3149f.js" crossorigin="anonymous"></script>
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
