@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="da">
 <head>
@@ -31,7 +35,6 @@
             <div class="col-10">
                 <form action="submit_motto.php" method="post" onsubmit="return validateMottoLength()">
                     <?php
-                    session_start();
                     if (isset($_SESSION['userId']) && isset($_SESSION['username'])) {
                         echo '<input type="hidden" name="userId" value="' . $_SESSION['userId'] . '">';
                         echo '<input type="hidden" name="username" value="' . $_SESSION['username'] . '">';

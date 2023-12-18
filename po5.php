@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="da">
 <head>
@@ -36,7 +40,7 @@
             <div class="col-10">
                 <form action="submit_location.php" method="post">
                     <?php
-                    session_start();
+
                     if (isset($_SESSION['userId'])) {
                         echo '<input type="hidden" name="userId" value="' . $_SESSION['userId'] . '">';
                     }
