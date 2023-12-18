@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="da">
 <head>
@@ -30,13 +34,10 @@
             </div>
                 <div class="col-10 mt-4">
                     <form action="submit_password.php" method="post">
-                        <?php
-                        session_start();
-                        if (isset($_SESSION['userId']) && isset($_SESSION['username'])) {
-                            echo '<input type="hidden" name="userId" value="' . $_SESSION['userId'] . '">';
-                            echo '<input type="hidden" name="username" value="' . $_SESSION['username'] . '">';
-                        }
-                        ?>
+                        <?php if (isset($_SESSION['userId']) && isset($_SESSION['username'])): ?>
+                            <input type="hidden" name="userId" value="<?php echo htmlspecialchars($_SESSION['userId']); ?>">
+                            <input type="hidden" name="username" value="<?php echo htmlspecialchars($_SESSION['username']); ?>">
+                        <?php endif; ?>
                         <div class="form-group">
                             <label for="password"> <h2>Adgangskode:</h2> </label>
                             <input type="password" class="form-control tall-input rounded shadow-sm border-0" id="password" name="password" placeholder="Vælg din kode">

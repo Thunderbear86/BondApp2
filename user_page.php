@@ -14,7 +14,7 @@ $userData = $db->sql("SELECT * FROM moedts WHERE userId = :userId", ['userId' =>
 $userData = $userData ? $userData[0] : null;
 
 if (!$userData) {
-    echo "Brugerdata ikke fundet."; // "User data not found."
+    echo "Brugerdata eksisterer ikke."; // "User data not found."
     exit();
 }
 

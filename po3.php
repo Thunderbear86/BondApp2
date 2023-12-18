@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="da">
 <head>
@@ -29,9 +33,13 @@
             </div>
             <div class="col-10">
                 <form action="submit_email.php" method="post">
+                    <?php if (isset($_SESSION['userId'])): ?>
+                        <input type="hidden" name="userId" value="<?php echo htmlspecialchars($_SESSION['userId']); ?>">
+                    <?php endif; ?>
+
                     <div class="form-group mb-4">
                         <label for="email"><h2>Indtast din email</h2></label>
-                        <input type="email" class="form-control mb-4 shadow-sm border-0 tall-input rounded" id="email" name="email" placeholder="F.eks anders.and@gmai.com" required>
+                        <input type="email" class="form-control mb-4 shadow-sm border-0 tall-input rounded" id="email" name="email" placeholder="F.eks anders.and@gmail.com" required>
                     </div>
                     <div class="row">
                         <div class="col text-start">
@@ -62,8 +70,8 @@
     const nextButton = document.getElementById('nextButton');
     function validateEmail() {
         const emailValue = emailInput.value;
-        const containsAtSign = emailValue.includes('@'); //tjekker at der inkluderet et @ i email
-        const endsWithValidDomain = emailValue.endsWith('.com') || emailValue.endsWith('.dk'); //tjekker efter enten.com /.dk til sdist
+        const containsAtSign = emailValue.includes('@');
+        const endsWithValidDomain = emailValue.endsWith('.com') || emailValue.endsWith('.dk');
         nextButton.disabled = !(containsAtSign && endsWithValidDomain);
     }
     emailInput.addEventListener('input', validateEmail);

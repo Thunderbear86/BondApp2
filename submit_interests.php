@@ -14,15 +14,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['interests'])) {
         }
 
         try {
+            // Begin transaction
+            $db->beginTransaction();
+
             foreach ($selectedInterests as $interestId) {
-                $sql = "INSERT INTO userInterests (userId, interestId) VALUES (:userId, :interestId)";
-                // Use the sql() method from your db class
-                $db->sql($sql, ['userId' => $userId, 'interestId' => $interestId], false);
+                $sql = "INSERT INTO userinterests (userId, interestsId) VALUES (:userId, :interestsId)";
+                $db->sql($sql, ['userId' => $userId, 'interestsId' => $interestId], false);
             }
+
+            // Commit transaction
+            $db->commit();
 
             header("Location: p3.php"); // Redirect to the next step
             exit();
         } catch (Exception $e) {
+            // Rollback transaction in case of error
+            $db->rollback();
+
             exit("Fejl: " . $e->getMessage());
         }
     } else {

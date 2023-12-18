@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="da">
 <head>
@@ -30,7 +34,6 @@
             <div class="col-10">
                 <form action="submit_text.php" method="post" onsubmit="return validateTextLength()">
                     <?php
-                    session_start();
                     if (isset($_SESSION['userId'])) {
                         echo '<input type="hidden" name="userId" value="' . $_SESSION['userId'] . '">';
                     }

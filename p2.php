@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="da">
 <head>
@@ -31,7 +35,6 @@
                 <form action="submit_interests.php" method="post">
                     <?php
                     require "settings/init.php";
-                    session_start();
 
                     // Fetch interests from the database
                     $interests = $db->sql("SELECT * FROM interests");
