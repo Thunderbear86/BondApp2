@@ -10,7 +10,6 @@
 </head>
 <body>
 <main>
-    <div class="container">
         <div class="container">
             <div class="row justify-content-center">
                 <img class="mt-5 mb-3 p-0" src="img/TEST%202.png" alt="logo" style="max-width: 50%;">
@@ -43,7 +42,6 @@
                 </div>
             </div>
         </div>
-    </div>
 </main>
 <script src="https://kit.fontawesome.com/a188e3149f.js" crossorigin="anonymous"></script>
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
