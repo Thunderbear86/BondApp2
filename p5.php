@@ -1,9 +1,3 @@
-<?php
-if (isset($_GET['error']) && $_GET['error'] == 'shortmotto') {
-    echo "<p>Citat, motto eller sætning skal være mindst 100 tegn lang.</p>";
-}
-?>
-
 <!DOCTYPE html>
 <html lang="da">
 <head>
@@ -18,10 +12,23 @@ if (isset($_GET['error']) && $_GET['error'] == 'shortmotto') {
 
 <main>
     <div class="container">
-        <div class="row">
-            <img src="img/LOGO.png" alt="logo" width="100" height="100">
-            <div class="col-lg-12">
-                <h1>Skriv et kort citat, motto eller sætning</h1>
+        <div class="row justify-content-center">
+            <img class="mt-5 mb-3 p-0" src="img/TEST%202.png" alt="logo" style="max-width: 50%;">
+            <div class="col-10 mb-2">
+                <h3>Profiludfyldelse</h3>
+            </div>
+            <div class=" col-10 mb-3">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated custom-progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 0" data-progress="100">100%</div>
+                </div>
+            </div>
+            <div class="col-10 mb-5">
+                <p>Bravo! Nu mangler vi kun det sidste!</p>
+            </div>
+            <div class="col-10 mb-4 mt-4">
+                <h5></h5>
+            </div>
+            <div class="col-10">
                 <form action="submit_motto.php" method="post" onsubmit="return validateMottoLength()">
                     <?php
                     session_start();
@@ -31,11 +38,24 @@ if (isset($_GET['error']) && $_GET['error'] == 'shortmotto') {
                     }
                     ?>
                     <div class="form-group">
-                        <label for="motto">Citat, motto eller sætning (mindst 100 tegn)</label>
-                        <textarea class="form-control" id="motto" name="motto" rows="4" required></textarea>
+                        <label for="motto"><h2>Skriv et motto eller citat som beskriver dig</h2></label>
+                        <small style="float: right;" id="charCount">0 / 100</small>
+                        <textarea class="form-control mb-4 shadow-sm border-0 rounded" id="motto" name="motto" rows="4" placeholder="Don't talk to me before I've had my coffee" maxlength="100" required></textarea>
                     </div>
-                    <button type="button" class="btn btn-secondary" onclick="window.location.href='p4.php'">Tilbage</button>
-                    <button type="submit" class="btn btn-primary">Afslut</button>
+                    <div class="row">
+                        <div class="col text-start">
+                            <button type="button" class="btn btn-secondary btn-lg" onclick="window.location.href='p4.php'">
+                                <i class="fa-solid fa-angle-left pe-4" style="color: #282E41;"></i>
+                                Tilbage
+                            </button>
+                        </div>
+                        <div class="col text-end">
+                            <button type="submit" id="nextButton" class="btn btn-primary btn-lg" disabled>
+                                Afslut
+                                <i class="fa-solid fa-angle-right ps-4" style="color: #282E41;"></i>
+                            </button>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
@@ -46,16 +66,20 @@ if (isset($_GET['error']) && $_GET['error'] == 'shortmotto') {
     <?php include "includes/footer.php";?>
 </footer>
 <script>
-    function validateMottoLength() {
-        var text = document.getElementById("motto").value;
-        if (text.length < 100) {
-            alert("Motto/Quote/Fun Fact skal være mindst 100 tegn.");
-            return false;
-        }
-        return true;
+    const mottoTextarea = document.getElementById('motto');
+    const nextButton = document.getElementById('nextButton');
+    const charCountElement = document.getElementById('charCount');
+
+    function updateButtonState() {
+        const textLength = mottoTextarea.value.length;
+        charCountElement.textContent = textLength + ' / 100';
+        nextButton.disabled = textLength === 0;
     }
+
+    mottoTextarea.addEventListener('input', updateButtonState);
 </script>
 <script src="js/main.js"></script>
+<script src="https://kit.fontawesome.com/a188e3149f.js" crossorigin="anonymous"></script>
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

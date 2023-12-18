@@ -18,7 +18,7 @@
             </div>
             <div class=" col-10 mb-3">
                 <div class="progress">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated custom-progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 0" data-progress="85.68">85,68%</div>
+                    <div class="progress-bar progress-bar-striped progress-bar-animated custom-progress-bar" role="progressbar" aria-valuemin="" aria-valuemax="100" style="width: 0" data-progress="85.68">85,68%</div>
                 </div>
             </div>
             <div class="col-10 mb-5">
