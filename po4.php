@@ -11,21 +11,24 @@
 
 <main>
     <div class="container">
-        <div class="row justify-content-center mb-4">
-            <img src="img/LOGO.png" alt="logo" style="max-width: 100px; max-height: 100px;">
-        </div>
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <p>Profiloprettelse</p>
-                <div class="progress" style="height: 20px;">
-                    <div class="progress-bar" role="progressbar" style="width: 56%;" aria-valuenow="56" aria-valuemin="0" aria-valuemax="100"></div>
+        <div class="row justify-content-center">
+            <img class="mt-5 mb-3 p-0" src="img/TEST%202.png" alt="logo" style="max-width: 50%;">
+            <div class="col-10 mb-2">
+                <h3>Profiloprettelse</h3>
+            </div>
+            <div class=" col-10 mb-3">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated custom-progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 0" data-progress="57.12">57,12%</div>
                 </div>
+            </div>
+            <div class="col-10 mb-5">
                 <p>Over halvvejs!</p>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <h1>Indtast din fødselsdato</h1>
+            <div class="col-10 mb-4 mt-4">
+                <h5>Hvad er din fødselsdato?</h5>
+            </div>
+
+            <div class="col-10">
                 <form action="submit_birthdate.php" method="post">
                     <?php
                     session_start();
@@ -34,11 +37,23 @@
                     }
                     ?>
                     <div class="form-group">
-                        <label for="birthdate">Fødselsdato</label>
-                        <input type="date" class="form-control" id="birthdate" name="birthdate" required>
+                        <label for="birthdate"><h2>Indtast din fødselsdato</h2></label>
+                        <input type="date" class="form-control mb-4 shadow-sm border-0 tall-input rounded" id="birthdate" name="birthdate" required>
                     </div>
-                    <button type="button" class="btn btn-secondary" onclick="window.location.href='po3.php'">Tilbage</button>
-                    <button type="submit" class="btn btn-primary">Næste</button>
+                    <div class="row">
+                        <div class="col text-start">
+                            <button type="button" class="btn btn-secondary btn-lg" onclick="window.location.href='po3.php'">
+                                <i class="fa-solid fa-angle-left pe-4" style="color: #282E41;"></i>
+                                Tilbage
+                            </button>
+                        </div>
+                        <div class="col text-end">
+                            <button type="submit" id="nextButton" class="btn btn-primary btn-lg" disabled>
+                                Næste
+                                <i class="fa-solid fa-angle-right ps-4" style="color: #282E41;"></i>
+                            </button>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
@@ -49,6 +64,24 @@
     <?php include "includes/footer.php";?>
 </footer>
 <script src="js/main.js"></script>
+<script>
+    const birthdateInput = document.getElementById('birthdate');
+    const nextButton = document.getElementById('nextButton');
+
+    //funktion til at udregne hvor gammel man er
+    function validateAge() {
+        const selectedDate = new Date(birthdateInput.value);
+        const currentDate = new Date();
+        const ageDiff = currentDate - selectedDate;
+        const age = new Date(ageDiff).getUTCFullYear() - 1970;
+
+        //ændre tal for alder
+        nextButton.disabled = age < 15;
+    }
+
+    birthdateInput.addEventListener('change', validateAge);
+</script>
+<script src="https://kit.fontawesome.com/a188e3149f.js" crossorigin="anonymous"></script>
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

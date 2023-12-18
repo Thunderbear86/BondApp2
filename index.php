@@ -14,7 +14,6 @@ require "settings/init.php";
     <meta name="robots" content="All">
     <meta name="author" content="Udgiver">
     <meta name="copyright" content="Information om copyright">
-
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
 
@@ -29,14 +28,19 @@ require "settings/init.php";
 <aside></aside>
 <main>
     <div class="container">
-        <div class="row">
-            <h1 class="text-center">Mødt</h1>
-                <a href="opretlog.php"><div class="col-lg-12">
-                    <img src="img/LOGO.png" alt="logo" class="logo">
-                </div></a>
-            <p class="text-center">Dating med mening</p>
-        </div>
-    </div>
+        <a href="opretlog.php">
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="row justify-content-center">
+                <img class="mt-5 pt-5 mb-3 p-0" src="img/TEST%202.png" alt="logo" style="max-width: 70%;">
+                <div class="col-10 mb-5">
+                    <h1 class="text-center mb-5">"Dating med mening"</h1>
+                    <h2 class="text-center opacity-50">Tryk for at fortsætte</h2>
+                </div>
+            </div>
+        </a>
 </main>
 <footer>
     <?php include "includes/footer.php";?>
